@@ -1,4 +1,3 @@
 # .dotfiles for [Me](http://github.com/BalinDavenport)
 
-Following guide from durdn
-https://www.atlassian.com/git/tutorials/dotfiles
+Backup of my dotfiles following guide from [durdn](https://www.atlassian.com/git/tutorials/dotfiles)
