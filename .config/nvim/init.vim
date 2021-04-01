@@ -5,6 +5,8 @@ set runtimepath+=~/.vim_runtime
 
 " PLUGINS
 call plug#begin('~/.nvim/plugged')
+" add coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " nord colorscheme
 Plug 'arcticicestudio/nord-vim'
 
