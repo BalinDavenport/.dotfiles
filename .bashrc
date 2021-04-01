@@ -160,7 +160,7 @@ alias ls="ls --color=auto"
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
-alias v="vim"
+alias v="nvim"
 alias e="emacs"
 alias cp="cp -i"                          # confirm before overwriting something
 alias df="df -h"                          # human-readable sizes
