@@ -5,8 +5,8 @@ Storing dotfiles in a bare git repository a simple method that requires no symli
 The technique utilises a [bare](https://www.geeksforgeeks.org/bare-repositories-in-git/) repository in a backup directory such as $HOME/.cfg or $HOME/.dotfiles alongside an alias that allows us to run .git commands to our backup directory instead of the local directory.
 
 ## Contents
-*[Setup](#Setup)
-*[Backup](#Backup)
+* [Setup](#Setup)
+* [Backup](#Backup)
 
 ## Setup
 
