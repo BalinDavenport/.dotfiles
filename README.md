@@ -1,6 +1,6 @@
 # . my dotfiles 
 
-![screenshot](i.ibb.co/fxbQ7Ky/2021-04-02-094903-3840x1080-scrot.png)
+![screenshot](https://i.ibb.co/JsNCPbG/2021-04-02-094903-3840x1080-scrot.png)
 
 ## Backup following [durdn's](https://www.atlassian.com/git/tutorials/dotfiles) method.
 Storing dotfiles in a bare git repository a simple method that requires no symlinks. Files are tracked on github, different branches can be used for different computers and you can easily replicate your dotfiles on a new system.
