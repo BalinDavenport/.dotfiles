@@ -64,7 +64,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch text editor
-    , ((modm,               xK_e     ), spawn "emacs")
+    , ((modm,               xK_v     ), spawn "nvim")
+    
+    -- launch joplin
+    --, ((modm .|. shiftMask, xK_p     ), spawn "joplin-desktop")
 
     -- launch anki
     , ((modm,               xK_a     ), spawn "anki")
@@ -72,14 +75,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch firefox
     , ((modm,               xK_b     ), spawn "firefox")
 
+    -- launch Joplin
+    , ((modm,               xK_i     ), spawn "joplin-desktop")
+
     -- launch telegram
     , ((modm,               xK_y     ), spawn "telegram-desktop")
 
     -- launch spotify
     , ((modm,               xK_s     ), spawn "spotify")
 
-    -- launch dmenu
-    , ((modm,               xK_p     ), spawn "dmenu_run")
+    -- launch rofi
+    , ((modm,               xK_p     ), spawn "rofi -show run")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -163,7 +169,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
     --
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_w, xK_r, xK_q] [0..]
+        | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
@@ -357,3 +363,4 @@ help = unlines ["The default modifier key is 'alt'. Default keybindings:",
     "mod-button1  Set the window to floating mode and move by dragging",
     "mod-button2  Raise the window to the top of the stack",
     "mod-button3  Set the window to floating mode and resize by dragging"]
+
