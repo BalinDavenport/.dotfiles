@@ -66,14 +66,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch text editor
     , ((modm,               xK_v     ), spawn "nvim")
     
-    -- launch joplin
-    --, ((modm .|. shiftMask, xK_p     ), spawn "joplin-desktop")
-
     -- launch anki
     , ((modm,               xK_a     ), spawn "anki")
 
-    -- launch firefox
-    , ((modm,               xK_b     ), spawn "firefox")
+    -- launch librewolf
+    , ((modm,               xK_b     ), spawn "librewolf")
+
+    -- launch brave
+    , ((modm .|. shiftMask, xK_b     ), spawn) "brave"
 
     -- launch Joplin
     , ((modm,               xK_i     ), spawn "joplin-desktop")
