@@ -73,7 +73,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_b     ), spawn "librewolf")
 
     -- launch brave
-    , ((modm .|. shiftMask, xK_b     ), spawn) "brave"
+    , ((modm .|. shiftMask, xK_b     ), spawn "brave")
 
     -- launch Joplin
     , ((modm,               xK_i     ), spawn "joplin-desktop")
