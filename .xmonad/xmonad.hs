@@ -70,10 +70,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_a     ), spawn "anki")
 
     -- launch librewolf
-    , ((modm,               xK_b     ), spawn "librewolf")
+    , ((modm,               xK_b     ), spawn "brave-browser")
 
     -- launch brave
-    , ((modm .|. shiftMask, xK_b     ), spawn "brave")
+    --, ((modm .|. shiftMask, xK_b     ), spawn "brave")
 
     -- launch Joplin
     , ((modm,               xK_i     ), spawn "joplin-desktop")
@@ -270,7 +270,7 @@ myLogHook = return ()
 myStartupHook = do
        spawnOnce "nitrogen --restore &"
        spawnOnce "compton &"
-       spawnOnce "picom --experimental-backend &"
+--       spawnOnce "picom --experimental-backend &"
        
 
 ------------------------------------------------------------------------
