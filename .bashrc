@@ -60,7 +60,7 @@ export EDITOR=nvim
 export HISTCONTROL=ignoreboth
 
 # colourful PS1
-#export PS1="\[\e[33m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[31m\]\h\[\e[m\] \W \[\e[36m\]\`parse_git_branch\`\[\e[m\] \A \\$ "
+# export PS1="\[\e[33m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[31m\]\h\[\e[m\] \W \[\e[36m\]\`parse_git_branch\`\[\e[m\] \A \\$ "
 
 
 [[ $- != *i* ]] && return
