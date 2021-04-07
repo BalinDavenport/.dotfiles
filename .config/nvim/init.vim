@@ -6,18 +6,19 @@ call plug#begin('~/.nvim/plugged')
 " add coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " nord colorscheme
-Plug 'arcticicestudio/nord-vim'
+"Plug 'arcticicestudio/nord-vim'
 
 " initialize plugin system
 call plug#end()
 
-colorscheme nord
+"colorscheme nord
 
 " This is for coc.nvim
 set hidden
 " set backups
 set nobackup
 set nowritebackup
+
 " Give more space for displaying messages
 set cmdheight=2
 
