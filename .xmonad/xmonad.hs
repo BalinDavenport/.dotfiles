@@ -270,7 +270,7 @@ myLogHook = return ()
 myStartupHook = do
        spawnOnce "nitrogen --restore &"
        spawnOnce "compton &"
---       spawnOnce "picom --experimental-backend &"
+       spawnOnce "picom --experimental-backend &"
        
 
 ------------------------------------------------------------------------
