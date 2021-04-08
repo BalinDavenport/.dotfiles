@@ -3,16 +3,43 @@
 set runtimepath+=~/.vim_runtime
 " PLUGINS
 call plug#begin('~/.nvim/plugged')
-" add coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" nord colorscheme
-"Plug 'arcticicestudio/nord-vim'
+Plug 'preservim/nerdtree'
+Plug 'frazrepo/vim-rainbow'
+Plug 'hoob3rt/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " initialize plugin system
 call plug#end()
 
-"colorscheme nord
-
+"Enable vim-rainbow
+let g:rainbow_active = 1
+let g:lualine = {
+    \'options' : {
+    \  'theme' : 'gruvbox',
+    \  'section_separators' : ['', ''],
+    \  'component_separators' : ['', ''],
+    \  'icons_enabled' : v:true,
+    \},
+    \'sections' : {
+    \  'lualine_a' : [ ['mode', {'upper': v:true,},], ],
+    \  'lualine_b' : [ ['branch', {'icon': '',}, ], ],
+    \  'lualine_c' : [ ['filename', {'file_status': v:true,},], ],
+    \  'lualine_x' : [ 'encoding', 'fileformat', 'filetype' ],
+    \  'lualine_y' : [ 'progress' ],
+    \  'lualine_z' : [ 'location'  ],
+    \},
+    \'inactive_sections' : {
+    \  'lualine_a' : [  ],
+    \  'lualine_b' : [  ],
+    \  'lualine_c' : [ 'filename' ],
+    \  'lualine_x' : [ 'location' ],
+    \  'lualine_y' : [  ],
+    \  'lualine_z' : [  ],
+    \},
+    \'extensions' : [ 'fzf' ],
+    \}
+lua require("lualine").setup()
 " This is for coc.nvim
 set hidden
 " set backups
