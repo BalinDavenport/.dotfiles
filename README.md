@@ -10,6 +10,7 @@ The technique utilises a [bare](https://www.geeksforgeeks.org/bare-repositories-
 ## Contents
 * [Setup](#Setup)
 * [Backup](#Backup)
+* [Installing on a new system](#Installing)
 
 ## Setup
 
@@ -37,3 +38,28 @@ config add .bashrc
 config commit -m "add bashrc"
 config push
 ```
+## Installing on a new system
+
+add the alias to .bashrc
+
+```bash
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+```
+ensure the source repo ignores the files where it is cloned.
+
+```bash
+echo ".dotfiles" >> .gitignore
+```
+
+clone .dotfiles into a bare repo in $HOME/.dotfiles
+
+```bash
+git clone --bare <git-repo-url> $HOME/.dotfiles
+```
+checkout the content of the backup to the bare repo in $HOME
+
+```bash
+config checkout
+```
+
+Thats it you're done!
