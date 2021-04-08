@@ -16,7 +16,7 @@ call plug#end()
 let g:rainbow_active = 1
 let g:lualine = {
     \'options' : {
-    \  'theme' : 'gruvbox',
+    \  'theme' : 'nord',
     \  'section_separators' : ['', ''],
     \  'component_separators' : ['', ''],
     \  'icons_enabled' : v:true,
@@ -40,6 +40,7 @@ let g:lualine = {
     \'extensions' : [ 'fzf' ],
     \}
 lua require("lualine").setup()
+
 " This is for coc.nvim
 set hidden
 " set backups
