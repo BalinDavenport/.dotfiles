@@ -10,7 +10,7 @@ The technique utilises a [bare](https://www.geeksforgeeks.org/bare-repositories-
 ## Contents
 * [Setup](#Setup)
 * [Backup](#Backup)
-* [Installing on a new system](#Installing on a new system)
+* [Installing on a new system](#Installing)
 
 ## Setup
 
