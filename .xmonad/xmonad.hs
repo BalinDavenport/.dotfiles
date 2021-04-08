@@ -148,7 +148,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_0     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
-    , ((modm              , xK_0     ), spawn "xmonad --recompile; pkill xmobar; xmonad --restart")
+    , ((modm              , xK_0     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
@@ -279,8 +279,6 @@ myStartupHook = do
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-  xmproc <- spawnPipe "xmobar -x 0 /home/bdavenport/.config/xmobar/xmobarrc"
-  xmproc <- spawnPipe "xmobar -x 1 /home/bdavenport/.config/xmobar/xmobarrc"
   xmonad $ docks defaults
 
 
