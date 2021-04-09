@@ -54,7 +54,7 @@ function parse_git_dirty {
 #
 # Default editor set to neovim
 export EDITOR=nvim
-
+export QT_QPA_PLATFORMTHEME="qt5ct"  
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 export HISTCONTROL=ignoreboth
