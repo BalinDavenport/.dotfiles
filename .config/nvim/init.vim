@@ -12,6 +12,7 @@ set autoindent              " indent a new line the same amount as the line just
 set relativenumber          " add line numbers
 set linebreak               " do not split words when soft wrap
 set spell spelllang=en_gb   " set spellcheck on
+
 " enable sytax
 syntax enable
 " initialize plugin system
@@ -24,33 +25,4 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
-
-"Enable vim-rainbow
-let g:rainbow_active = 1
-let g:lualine = {
-    \'options' : {
-    \  'theme' : 'nord',
-    \  'section_separators' : ['', ''],
-    \  'component_separators' : ['', ''],
-    \  'icons_enabled' : v:true,
-    \},
-    \'sections' : {
-    \  'lualine_a' : [ ['mode', {'upper': v:true,},], ],
-    \  'lualine_b' : [ ['branch', {'icon': '',}, ], ],
-    \  'lualine_c' : [ ['filename', {'file_status': v:true,},], ],
-    \  'lualine_x' : [ 'encoding', 'fileformat', 'filetype' ],
-    \  'lualine_y' : [ 'progress' ],
-    \  'lualine_z' : [ 'location'  ],
-    \},
-    \'inactive_sections' : {
-    \  'lualine_a' : [  ],
-    \  'lualine_b' : [  ],
-    \  'lualine_c' : [ 'filename' ],
-    \  'lualine_x' : [ 'location' ],
-    \  'lualine_y' : [  ],
-    \  'lualine_z' : [  ],
-    \},
-    \'extensions' : [ 'fzf' ],
-    \}
-lua require("lualine").setup()
 
