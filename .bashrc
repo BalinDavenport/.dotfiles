@@ -4,6 +4,8 @@
 #
 #  ~/.bashrc 
 
+keychain --nogui /root/.ssh/* &> /dev/null
+
 ### EXPORTS
 # Default editor set to neovim
 export EDITOR=nvim                                     # Use nvim

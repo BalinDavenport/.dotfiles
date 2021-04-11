@@ -73,7 +73,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_b     ), spawn "brave-browser")
 
     -- launch brave
-    --, ((modm .|. shiftMask, xK_b     ), spawn "brave")
+    --, ((modm .|. shiftMask, xK_b   ), spawn "brave")
 
     -- launch Joplin
     , ((modm,               xK_i     ), spawn "joplin-desktop")
@@ -233,9 +233,9 @@ myLayout = (tiled ||| Mirror tiled ||| Full)
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "MPlayer"        --> doFloat
-    , className =? "Firefox"        --> doFloat
-    , className =? "Gcolor"         --> doFloat
+    [ className =? "Anki"           --> doFloat
+    , className =? "Brave"          --> doFloat
+    , className =? "gcolor"         --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
