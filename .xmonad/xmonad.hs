@@ -66,6 +66,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch text editor
     , ((modm,               xK_v     ), spawn "nvim")
     
+    -- launch maim
+    , ((0, xK_Print                  ), spawn "maim -s | xclip -selection clipboard -t image/png")
+    
     -- launch anki
     , ((modm,               xK_a     ), spawn "anki")
 
