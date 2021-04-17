@@ -11,7 +11,7 @@ set shiftwidth=4            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
 set relativenumber          " add line numbers
 set linebreak               " do not split words when soft wrap
-set spell spelllang=en_gb   " set spellcheck on
+"set spell spelllang=en_gb   " set spellcheck on
 
 " enable sytax
 syntax enable

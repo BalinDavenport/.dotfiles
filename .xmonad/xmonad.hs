@@ -67,22 +67,22 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_v     ), spawn "nvim")
     
     -- launch maim
-    , ((0, xK_Print                  ), spawn "maim -s | xclip -selection clipboard -t image/png")
+    , ((0,                  xK_Print ), spawn "maim -s | xclip -selection clipboard -t image/png")
     
     -- launch anki
     , ((modm,               xK_a     ), spawn "anki")
 
-    -- launch librewolf
-    , ((modm,               xK_b     ), spawn "brave-browser")
-
     -- launch brave
-    --, ((modm .|. shiftMask, xK_b   ), spawn "brave")
+    , ((modm,               xK_b     ), spawn "brave-browser")
 
     -- launch Joplin
     , ((modm,               xK_i     ), spawn "joplin-desktop")
 
     -- launch telegram
     , ((modm,               xK_y     ), spawn "telegram-desktop")
+
+    -- launch rstudio
+    , ((modm .|. shiftMask, xK_r     ), spawn "rstudio")
 
     -- launch spotify
     , ((modm,               xK_s     ), spawn "spotify")
