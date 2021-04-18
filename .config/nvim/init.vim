@@ -36,4 +36,5 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
-
+" adds highlighting when a line goes over 80 characters long
+call matchadd('ColorColumn', '\%81v', 100)
