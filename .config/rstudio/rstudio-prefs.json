@@ -1,0 +1,53 @@
+{
+    "initial_working_directory": "~",
+    "editor_theme": "Nord",
+    "pdf_previewer": "none",
+    "posix_terminal_shell": "bash",
+    "save_workspace": "never",
+    "load_workspace": false,
+    "show_last_dot_value": true,
+    "num_spaces_for_tab": 4,
+    "show_invisibles": true,
+    "show_indent_guides": true,
+    "scroll_past_end_of_document": true,
+    "highlight_r_function_calls": true,
+    "rainbow_parentheses": true,
+    "editor_keybindings": "vim",
+    "syntax_color_console": true,
+    "console_double_click_select": true,
+    "show_doc_outline_rmd": true,
+    "doc_outline_show": "all",
+    "default_latex_program": "XeLaTeX",
+    "spelling_dictionary_language": "en_GB",
+    "panes": {
+        "quadrants": [
+            "Source",
+            "TabSet2",
+            "TabSet1",
+            "Console"
+        ],
+        "tabSet1": [
+            "Environment",
+            "History",
+            "Plots",
+            "Connections",
+            "Help",
+            "Build",
+            "VCS",
+            "Tutorial",
+            "Viewer",
+            "Presentation"
+        ],
+        "tabSet2": [
+            "Files",
+            "Packages"
+        ],
+        "hiddenTabSet": [],
+        "console_left_on_top": false,
+        "console_right_on_top": false,
+        "additional_source_columns": 0
+    },
+    "default_project_location": "~/docs/R-docs",
+    "font_size_points": 12,
+    "source_with_echo": true
+}

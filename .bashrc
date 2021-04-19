@@ -8,8 +8,6 @@ keychain --nogui /root/.ssh/* &> /dev/null
 
 ### EXPORTS
 # Default editor set to neovim
-export EDITOR=nvim                                     # Use nvim
-export MANPAGER="nvim -c 'set ft=man' -"               # use nvim for man pages
 export QT_QPA_PLATFORMTHEME="qt5ct"                    # fixes qt 
 #export QT_SELECT=4
 export HISTCONTROL=ignoreboth                          # no dups/line starts with space
@@ -59,17 +57,6 @@ colors() {
 
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
-# Change the window title of X terminals
-case ${TERM} in
-	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|alacritty|interix|konsole*)
-		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
-		;;
-	screen*)
-		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
-		;;
-esac
-
-
 # git
 alias g="git"
 alias gd="git diff"
@@ -80,14 +67,11 @@ alias ls="ls --color=auto"
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
-alias v="nvim"
-alias e="emacs"
 alias cp="cp -i"                          # confirm before overwriting something
 alias mv="mv -i"
 alias rm="rm -I"
 alias df="df -h"                          # human-readable sizes
 alias free="free -m"                      # show sizes in MB
-alias np="nano -w PKGBUILD"
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 

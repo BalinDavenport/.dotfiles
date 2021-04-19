@@ -63,9 +63,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
 
-    -- launch text editor
-    , ((modm,               xK_v     ), spawn "nvim")
-    
     -- launch maim
     , ((0,                  xK_Print ), spawn "maim -s | xclip -selection clipboard -t image/png")
     
@@ -78,6 +75,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch Joplin
     , ((modm,               xK_i     ), spawn "joplin-desktop")
 
+    -- launch text editor
+    , ((modm,               xK_v     ), spawn "nvim")
+    
     -- launch telegram
     , ((modm,               xK_y     ), spawn "telegram-desktop")
 
