@@ -15,7 +15,7 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "alacritty"
+myTerminal      = "alacritty" 
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -70,7 +70,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_a     ), spawn "anki")
 
     -- launch brave
-    , ((modm,               xK_b     ), spawn "brave-browser")
+    , ((modm,               xK_b     ), spawn "brave")
 
     -- launch Joplin
     , ((modm,               xK_i     ), spawn "joplin-desktop")
@@ -85,10 +85,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_r     ), spawn "rstudio")
 
     -- launch spotify
-    , ((modm,               xK_s     ), spawn "spotify")
+    , ((modm,               xK_s     ), spawn "ncspot")
 
     -- launch rofi
-    , ((modm,               xK_p     ), spawn "rofi -show run")
+    , ((modm,               xK_p     ), spawn "dmenu_run")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -237,7 +237,7 @@ myLayout = (tiled ||| Mirror tiled ||| Full)
 --
 myManageHook = composeAll
     [ className =? "Anki"           --> doFloat
-    , className =? "Brave"          --> doFloat
+    , className =? "brave-bin"      --> doFloat
     , className =? "gcolor"         --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
@@ -271,9 +271,9 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
-       spawnOnce "nitrogen --restore &"
-       spawnOnce "compton &"
-       spawnOnce "picom --experimental-backend &"
+--       spawnOnce "nitrogen --restore &"
+--       spawnOnce "compton &"
+--       spawnOnce "picom --experimental-backend &"
        
 
 ------------------------------------------------------------------------
@@ -283,7 +283,6 @@ myStartupHook = do
 --
 main = do
   xmonad $ docks defaults
-
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
