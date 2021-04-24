@@ -30,6 +30,10 @@ echo "alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" 
 ```
 * then hide files we are not explicitly tracking, this is so that only files we are interested in show up when we use commands like `config status` later.
 
+```bash
+config config --local status.showUntrackedFiles no
+```
+
 ## Backup
 After completing these steps we are ready to version control our dotfiles using the aliase we created in setup.
 ```git
