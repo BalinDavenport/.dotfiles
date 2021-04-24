@@ -236,12 +236,13 @@ myLayout = (tiled ||| Mirror tiled ||| Full)
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "Anki"           --> doFloat
-    , className =? "brave-bin"      --> doFloat
-    , className =? "gcolor"         --> doFloat
-    , className =? "Gimp"           --> doFloat
-    , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    [ className =? "Anki"            --> doFloat
+    , className =? "Brave-browser"   --> doFloat
+    , className =? "gcolor"          --> doFloat
+    , className =? "Gimp"            --> doFloat
+    , className =? "TelegramDesktop" --> doFloat
+    , resource  =? "desktop_window"  --> doIgnore
+    , resource  =? "kdesktop"        --> doIgnore ]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -271,8 +272,7 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
---       spawnOnce "nitrogen --restore &"
---       spawnOnce "compton &"
+--       spawnOnce "nitron &"
 --       spawnOnce "picom --experimental-backend &"
        
 
