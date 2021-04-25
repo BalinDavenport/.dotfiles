@@ -1,6 +1,23 @@
 --
--- xmonad config file.
---
+--   _____   _____
+--  \    \  \    \
+--   \    \  \    \
+--    \    \  \    \
+--     \    \  \    \  \-----------|
+--      \    \  \    \  \          |
+--       \    \  \    \  \---------|
+--       /    /  /     \
+--      /    /  /       \  \-------|
+--     /    /  /    ^    \  \      |
+--    /    /  /    / \    \  \ ----|
+--   /    /  /    /   \    \
+--  /____/  /____/     \____\
+--                                           .___
+--  ___  ___ _____   ____   ____ _____     __| _/
+--  \  \/  //     \ /  _ \ /    \\__  \   / __ | 
+--   >    <|  Y Y  (  <_> )   |  \/ __ \_/ /_/ | 
+--  /__/\_ \__|_|  /\____/|___|  (____  /\____ | 
+--        \/     \/            \/     \/      \/ 
 --IMPORTS
 
 import XMonad
@@ -17,22 +34,12 @@ import qualified Data.Map        as M
 --
 myTerminal      = "alacritty" 
 
--- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
-
--- Whether clicking on a window to focus also passes the click to the window
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
-
--- Width of the window border in pixels.
 --
 myBorderWidth   = 2
-
--- modMask lets you specify which modkey you want to use. The default
--- is mod1Mask ("left alt").  You may also consider using mod3Mask
--- ("right alt"), which does not conflict with emacs keybindings. The
--- "windows key" is usually mod4Mask.
 --
 myModMask       = mod4Mask
 

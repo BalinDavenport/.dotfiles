@@ -35,6 +35,7 @@ call plug#begin('~/.nvim/plugged')
 call matchadd('ColorColumn', '\%81v', 100)
 
 " PLUGINS
+Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 Plug 'frazrepo/vim-rainbow'
 Plug 'kyazdani42/nvim-web-devicons'
