@@ -1,6 +1,6 @@
 {
     "initial_working_directory": "~",
-    "editor_theme": "Nord",
+    "editor_theme": "Cherry",
     "pdf_previewer": "none",
     "posix_terminal_shell": "bash",
     "save_workspace": "never",
@@ -49,5 +49,6 @@
     },
     "default_project_location": "~/docs/R-docs",
     "source_with_echo": true,
-    "document_author": "B Davenport"
+    "document_author": "B Davenport",
+    "jobs_tab_visibility": "shown"
 }

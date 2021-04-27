@@ -1,30 +1,15 @@
 --
---   _____   _____
---  \    \  \    \
---   \    \  \    \
---    \    \  \    \
---     \    \  \    \  \-----------|
---      \    \  \    \  \          |
---       \    \  \    \  \---------|
---       /    /  /     \
---      /    /  /       \  \-------|
---     /    /  /    ^    \  \      |
---    /    /  /    / \    \  \ ----|
---   /    /  /    /   \    \
---  /____/  /____/     \____\
---                                           .___
---  ___  ___ _____   ____   ____ _____     __| _/
---  \  \/  //     \ /  _ \ /    \\__  \   / __ | 
---   >    <|  Y Y  (  <_> )   |  \/ __ \_/ /_/ | 
---  /__/\_ \__|_|  /\____/|___|  (____  /\____ | 
---        \/     \/            \/     \/      \/ 
---IMPORTS
+-- xmonad example config file.
+--
+-- A template showing all available configuration hooks,
+-- and how to override the defaults in your own xmonad.hs conf file.
+--
+-- Normally, you'd only override those defaults you care about.
+--
 
 import XMonad
 import Data.Monoid
 import System.Exit
-import XMonad.Hooks.ManageDocks
-import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -32,14 +17,24 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "alacritty" 
+myTerminal      = "alacritty"
 
+-- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = False
+myFocusFollowsMouse = True
+
+-- Whether clicking on a window to focus also passes the click to the window
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
+
+-- Width of the window border in pixels.
 --
 myBorderWidth   = 2
+
+-- modMask lets you specify which modkey you want to use. The default
+-- is mod1Mask ("left alt").  You may also consider using mod3Mask
+-- ("right alt"), which does not conflict with emacs keybindings. The
+-- "windows key" is usually mod4Mask.
 --
 myModMask       = mod4Mask
 
@@ -56,49 +51,25 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#464f62"
-myFocusedBorderColor = "#82a3c2"
+myNormalBorderColor  = "#dddddd"
+myFocusedBorderColor = "#ff0000"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
-    ----------
-    -- Apps --
-    ----------
     -- launch a terminal
     [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
 
-    -- launch maim
-    , ((0,                  xK_Print ), spawn "maim -s | xclip -selection clipboard -t image/png")
-    
-    -- launch anki
-    , ((modm,               xK_a     ), spawn "anki")
-
-    -- launch brave
-    , ((modm,               xK_b     ), spawn "brave")
-
-    -- launch Joplin
-    , ((modm,               xK_i     ), spawn "joplin-desktop")
-
-    -- launch text editor
-    , ((modm,               xK_v     ), spawn "nvim")
-    
-    -- launch telegram
-    , ((modm,               xK_y     ), spawn "telegram-desktop")
-
-    -- launch rstudio
-    , ((modm .|. shiftMask, xK_r     ), spawn "rstudio")
-
-    -- launch spotify
-    , ((modm,               xK_s     ), spawn "ncspot")
-
-    -- launch rofi
+    -- launch dmenu
     , ((modm,               xK_p     ), spawn "dmenu_run")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
+
+    -- launch chromium
+    , ((modm,               xK_b     ), spawn "chromium")
 
     -- close focused window
     , ((modm,               xK_c     ), kill)
@@ -155,10 +126,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
     -- Quit xmonad
-    , ((modm .|. shiftMask, xK_0     ), io (exitWith ExitSuccess))
+    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
-    , ((modm              , xK_0     ), spawn "xmonad --recompile; xmonad --restart")
+    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
@@ -207,13 +178,13 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 -- You can specify and transform your layouts by modifying these values.
 -- If you change layout bindings be sure to use 'mod-shift-space' after
--- restarting (with 'mod-0') to reset your layout state to the new
+-- restarting (with 'mod-q') to reset your layout state to the new
 -- defaults, as xmonad preserves your old layout settings by default.
 --
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = (tiled ||| Mirror tiled ||| Full)
+myLayout = tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -243,13 +214,10 @@ myLayout = (tiled ||| Mirror tiled ||| Full)
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "Anki"            --> doFloat
-    , className =? "Brave-browser"   --> doFloat
-    , className =? "gcolor"          --> doFloat
-    , className =? "Gimp"            --> doFloat
-    , className =? "TelegramDesktop" --> doFloat
-    , resource  =? "desktop_window"  --> doIgnore
-    , resource  =? "kdesktop"        --> doIgnore ]
+    [ className =? "MPlayer"        --> doFloat
+    , className =? "Gimp"           --> doFloat
+    , resource  =? "desktop_window" --> doIgnore
+    , resource  =? "kdesktop"       --> doIgnore ]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -279,17 +247,17 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
---       spawnOnce "nitron &"
---       spawnOnce "picom --experimental-backend &"
-       
+          spawnOnce "xwallpaper --no-randr --zoom ~/pics/walls/cherry.png &"
+          spawnOnce "setxkbmap gb -option caps:escape &"
+          spawnOnce "picom &"
+
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = do
-  xmonad $ docks defaults
+main = xmonad defaults
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
@@ -370,4 +338,3 @@ help = unlines ["The default modifier key is 'alt'. Default keybindings:",
     "mod-button1  Set the window to floating mode and move by dragging",
     "mod-button2  Raise the window to the top of the stack",
     "mod-button3  Set the window to floating mode and resize by dragging"]
-
