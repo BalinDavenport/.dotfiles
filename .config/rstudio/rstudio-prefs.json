@@ -50,5 +50,6 @@
     "default_project_location": "~/docs/R-docs",
     "source_with_echo": true,
     "document_author": "B Davenport",
-    "jobs_tab_visibility": "shown"
+    "jobs_tab_visibility": "shown",
+    "global_theme": "alternate"
 }
