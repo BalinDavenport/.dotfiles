@@ -62,8 +62,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
 
+    -- launch maim_clipit
+    , ((0,              xK_Print     ), spawn "maim -s | xclip -selection clipboard -t image/png")
+
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "dmenu_run")
+
+    -- launch telegram
+    , ((modm,               xK_y     ), spawn "telegram-desktop")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
