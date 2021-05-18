@@ -75,7 +75,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
     -- launch chromium
-    , ((modm,               xK_b     ), spawn "chromium")
+    , ((modm,               xK_b     ), spawn "brave-nightly")
 
     -- close focused window
     , ((modm,               xK_c     ), kill)
