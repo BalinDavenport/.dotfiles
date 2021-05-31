@@ -11,21 +11,6 @@
 "         .;ooo:       ;cclooo:.
 "           .;oc        'coo;.
 "               .'         .,.  eovim
-" setup
-set runtimepath+=~/.vim_runtime
-set relativenumber          " add line numbers
-set linebreak               " do not split words when soft wrap
-set autoindent              " indent a new line the same amount as the line just typed
-"set spell spelllang=en_gb   " set spellcheck on
-set expandtab               " converts tabs to white space
-set tabstop=2               " number of columns occupied by a tab character
-set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
-set shiftwidth=2            " width for autoindents
-
-" keybindings
-let mapleader=","
-
-" enable sytax
 syntax enable
     
 " initialize plugin system
@@ -35,6 +20,7 @@ call plug#begin('~/.nvim/plugged')
 call matchadd('ColorColumn', '\%81v', 100)
 
 " PLUGINS
+Plug 'lifepillar/vim-gruvbox8'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 Plug 'frazrepo/vim-rainbow'
@@ -42,10 +28,111 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+" Better Visual Guide
+Plug 'Yggdroot/indentLine'
+
+" syntax check
+Plug 'w0rp/ale'
+
+" Autocomplete
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-jedi'
+
+" Formater
+Plug 'Chiel92/vim-autoformat'
+
 call plug#end()
 
 " plugin setup's
 "--------------- 
+filetype plugin indent on
+
+" Configurations Part
+" UI configuration
+syntax on
+syntax enable
+
+" True Color Support if it's avaiable in terminal
+if has("termguicolors")
+    set termguicolors
+endif
+if has("gui_running")
+  set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:blocks
+endif
+
+" setup
+set runtimepath+=~/.vim_runtime
+set linebreak               " do not split words when soft wrap
+"set spell spelllang=en_gb   " set spellcheck on
+
+" Set theme
+colorscheme gruvbox8_soft
+let $NVIM_TUI_ENABLE_TRUE_COLOR_=1
+
+" keybindings
+let mapleader=","
+
+" enable sytax
+set number
+set relativenumber
+set hidden
+set mouse=a
+set noshowmode
+set noshowmatch
+set nolazyredraw
+
+" Turn off backup
+set nobackup
+set noswapfile
+set nowritebackup
+
+" Search configuration
+set ignorecase                    " ignore case when searching
+set smartcase                     " turn on smartcase
+
+" Tab and Indent configuration
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
+" vim-autoformat
+noremap <F3> :Autoformat<CR>
+
+" NCM2
+augroup NCM2
+  autocmd!
+  " enable ncm2 for all buffers
+  autocmd BufEnter * call ncm2#enable_for_buffer()
+  " :help Ncm2PopupOpen for more information
+  set completeopt=noinsert,menuone,noselect
+  " When the <Enter> key is pressed while the popup menu is visible, it only
+  " hides the menu. Use this mapping to close the menu and also start a new line.
+  inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+  " uncomment this block if you use vimtex for LaTex
+  " autocmd Filetype tex call ncm2#register_source({
+  "           \ 'name': 'vimtex',
+  "           \ 'priority': 8,
+  "           \ 'scope': ['tex'],
+  "           \ 'mark': 'tex',
+  "           \ 'word_pattern': '\w+',
+  "           \ 'complete_pattern': g:vimtex#re#ncm2,
+  "           \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+  "           \ })
+augroup END
+
+" Ale
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_linters = {'python': ['flake8']}
+
+
 
 " vimwiki config
 let g:vimwiki_list = [{'path': '~/vimwiki/',
@@ -145,7 +232,7 @@ let g:mkdp_filetypes = ['markdown']
 " Lualine config
 let g:lualine = {
     \'options' : {
-    \  'theme' : 'nord',
+    \  'theme' : 'gruvbox',
     \  'section_separators' : ['', ''],
     \  'component_separators' : ['', ''],
     \  'icons_enabled' : v:true,
