@@ -65,17 +65,20 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch maim_clipit
     , ((0,              xK_Print     ), spawn "maim -s | xclip -selection clipboard -t image/png")
 
+    -- launch brave
+    , ((modm,               xK_b     ), spawn "brave-nightly")
+
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "dmenu_run")
 
-    -- launch telegram
+    -- launch steam
+    , ((modm,               xK_s     ), spawn "steam")
+
+   -- launch telegram
     , ((modm,               xK_y     ), spawn "telegram-desktop")
 
-    -- launch gmrun
-    , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
-
-    -- launch chromium
-    , ((modm,               xK_b     ), spawn "brave-nightly")
+    -- launch zathura
+    , ((modm,               xK_z     ), spawn "zathura")
 
     -- close focused window
     , ((modm,               xK_c     ), kill)

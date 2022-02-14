@@ -1,6 +1,6 @@
 {
     "initial_working_directory": "~",
-    "editor_theme": "Cherry",
+    "editor_theme": "Pastel On Dark",
     "pdf_previewer": "none",
     "posix_terminal_shell": "bash",
     "save_workspace": "never",
@@ -40,7 +40,8 @@
         ],
         "tabSet2": [
             "Files",
-            "Packages"
+            "Packages",
+            "Presentations"
         ],
         "hiddenTabSet": [],
         "console_left_on_top": false,
@@ -48,8 +49,8 @@
         "additional_source_columns": 0
     },
     "default_project_location": "~/docs/R-docs",
-    "source_with_echo": true,
     "document_author": "B Davenport",
     "jobs_tab_visibility": "shown",
-    "global_theme": "alternate"
+    "show_terminal_tab": false,
+    "source_with_echo": true
 }
